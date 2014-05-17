@@ -52,25 +52,7 @@
 
 \ProcessOptions\relax
 
-\setlength{\paperwidth}{8.5in}
-\setlength{\paperheight}{11.0in}
-\special{papersize=8.5in,11in}
-
-\setlength{\hoffset}{-1.0in}
-\setlength{\marginparsep}{0.0in}
-\setlength{\marginparwidth}{0.0in}
-\setlength{\evensidemargin}{1.5in}
-\setlength{\oddsidemargin}{1.5in}
-\setlength{\textwidth}{6.0in}
-
-\setlength{\voffset}{-1.0in}
-\setlength{\topmargin}{1.0in}
-\setlength{\headheight}{0.0in}
-\setlength{\headsep}{0.0in}
-\setlength{\textheight}{9.0in}
-\setlength{\footskip}{2em}
-\addtolength{\textheight}{-\footskip}
-
+\input{fmt} % Formatting options
 
 % Alter some LaTeX defaults for better treatment of figures:
 % See p.105 of "TeX Unbound" for suggested values.
@@ -141,6 +123,7 @@
 
 \DeclareRobustCommand{\CWRUpreamble}{%
   \@CWRUtitle
+  \@CWRUcommittee
   \if@copy
   \@CWRUcopy
   \fi
@@ -179,7 +162,31 @@
   \clearpage
 }
 
-\include{crwu_committee}
+\def\@CWRUcommittee{%
+%  \section*{Committee Approval Sheet}
+  \begin{center}
+    {\large{\textbf{\uppercase{Case Western Reserve University\\
+            School of Graduate Studies}}} \par}%
+  \end{center}
+  \vspace{3em}
+  \begin{center}
+    \begin{minipage}{5.0in}
+      {\noindent We hereby approve the \MakeLowercase{\@degree} of \par}
+      \vspace{2em}
+      \centering{\large{\@author}}\par
+      \vspace{0.5em}
+      \hrule
+      \vspace{2em}
+      \centering{\large{\@degree}}\par%
+      \vspace{-1em}
+      {\noindent candidate for the \hrulefill{} degree*. \par}
+    \end{minipage}
+  \end{center}
+  \vfill
+  {\noindent *We also certify that written approval has been obtained for any proprietary material contained herein. \par}%
+  \phantomsection%
+  \clearpage
+}
 
 \def\@CWRUcopy{%
   \section*{Copyright}
@@ -250,9 +257,11 @@
   \long\def\@CWRUloatext{#1}
 }
 
+\newcommand\loaname{List of Abbreviations}
+
 \def\@CWRUloa{%
-  \section*{List of Abbreviation}%
-  \begin{CWRU@page}{List of Abbreviations}
+  \section*{\loaname}
+  \begin{CWRU@page}{\loaname}
     \@CWRUloatext
   \end{CWRU@page}
 }
@@ -265,7 +274,7 @@
 \def\@CWRUglossary{%
   \section*{Glossary}%
   \begin{CWRU@page}{Glossary}
-    \@CWRUloatext
+    \@CWRUglossarytext
   \end{CWRU@page}
 }
 
@@ -282,10 +291,14 @@
 }
 
 \renewcommand\appendix{\par
+  \setcounter{part}{0}%
   \setcounter{section}{0}%
   \setcounter{subsection}{0}%
   \clearpage%
-  \gdef\thesection{\@Alph\c@section}}
+  \gdef\thesection{\@Alph\c@section}
+  \gdef\thepart{}
+  \renewcommand\partname{}
+}
 
 %\renewcommand{\baselinestretch}{2}
 \linespread{1.6}
