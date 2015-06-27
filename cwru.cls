@@ -14,7 +14,7 @@
 \LoadClass[12pt]{article}[2007/10/19]
 
 \RequirePackage{graphicx}
-\RequirePackage{hyperref}
+%\RequirePackage{hyperref}
 \RequirePackage{fixltx2e}
 
 \newif\if@advisor
@@ -162,12 +162,14 @@
   \if@ack
   \@CWRUack
   \fi
-  \if@loa
-  \@CWRUloa
-  \fi
-  \if@glossary
-  \@CWRUglossary
-  \fi
+%  \if@loa
+%  \@CWRUloa
+%  \fi
+%  \if@glossary
+%  \@CWRUglossary
+%  \fi
+  \printglossaries
+  \pagebreak
   \@CWRUabstract
   \pagenumbering{arabic}
 }
@@ -276,7 +278,7 @@
 }
 
 \def\@CWRUloa{%
-  \section*{List of Abbreviation}%
+  \section*{List of Abbreviations}%
   \begin{CWRU@page}{List of Abbreviations}
     \@CWRUloatext
   \end{CWRU@page}
@@ -314,5 +316,4 @@
 
 %\renewcommand{\baselinestretch}{2}
 \linespread{1.6}
-
 
