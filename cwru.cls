@@ -14,7 +14,7 @@
 \LoadClass[12pt]{article}[2007/10/19]
 
 \RequirePackage{graphicx}
-\RequirePackage{hyperref}
+%\RequirePackage{hyperref}
 \RequirePackage{fixltx2e}
 
 \newif\if@advisor
@@ -52,7 +52,7 @@
 
 \ProcessOptions\relax
 
-\input{fmt} % Formatting options
+\input{metadata/fmt} % Formatting options
 
 % Alter some LaTeX defaults for better treatment of figures:
 % See p.105 of "TeX Unbound" for suggested values.
@@ -144,12 +144,14 @@
   \if@ack
   \@CWRUack
   \fi
-  \if@loa
-  \@CWRUloa
-  \fi
-  \if@glossary
-  \@CWRUglossary
-  \fi
+%  \if@loa
+%  \@CWRUloa
+%  \fi
+%  \if@glossary
+%  \@CWRUglossary
+%  \fi
+  \printglossaries
+  \pagebreak
   \@CWRUabstract
   \pagenumbering{arabic}
 }
