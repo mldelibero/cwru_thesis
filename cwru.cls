@@ -9,7 +9,7 @@
 % Copyright Sheet
 
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesClass{cwru}[2012/04/17 v0.1 Case Western Reserve University Thesis Class]
+\ProvidesClass{metadata/cwru}[2012/04/17 v0.1 Case Western Reserve University Thesis Class]
 
 \LoadClass[12pt]{article}[2007/10/19]
 
