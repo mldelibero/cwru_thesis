@@ -220,7 +220,7 @@
   \phantomsection
   \addcontentsline{toc}{section}{\listfigurename}
   \listoffigures
-  \clearpage
+  %\clearpage
 }
 
 \def\@CWRUlot{%
