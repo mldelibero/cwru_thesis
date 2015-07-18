@@ -75,16 +75,27 @@
 \hyphenpenalty=5000
 \tolerance=1000
 
+\def\@chair{TBD}
 \DeclareRobustCommand{\CWRUadvisor}[1]{
   \@advisortrue
   \def\@advisor{\@document{} Advisor: \textnormal{#1}}
+  \def\@chair{#1}
 }
+
+\newcommand{\committeeOne}[0]{TBD}
+\DeclareRobustCommand{\CWRUCommitteeOne}[1]{\renewcommand{\committeeOne}[1]{#1}}
+
+\newcommand{\committeeTwo}[0]{TBD}
+\DeclareRobustCommand{\CWRUCommitteeTwo}[1]{\renewcommand{\committeeTwo}[1]{#1}}
 
 \def\@department{Department of the Unnamed}
 \DeclareRobustCommand{\CWRUdepartment}[1]{\def\@department{Department of #1}}
 
 \def\@graduationdate{TBD}
 \DeclareRobustCommand{\CWRUgraduationdate}[1]{\def\@graduationdate{#1}}
+
+\def\@defensedate{TBD}
+\DeclareRobustCommand{\CWRUdefensedate}[1]{\def\@defensedate{#1}}
 
 % Customize the degree name and the document type text
 \DeclareRobustCommand{\CWRUdegreename}[1]{\def\@degree{#1}}
@@ -184,6 +195,32 @@
       {\noindent candidate for the \hrulefill{} degree*. \par}
     \end{minipage}
   \end{center}
+
+    \begin{center}
+        \begin{minipage}{3in}
+            \vspace{6em}
+            \leftline{Examining Committee:\hfil}
+            \vskip 28pt \vfil 
+
+            \leftline{Francis Merat\hfil}
+            \vskip 1pt \hrule width 2.8in \hfil \vskip -3pt
+            \leftline{Committee Chair\hfil} 
+            \vskip 10pt
+
+            \leftline{\committeeOne \hfil}
+            \vskip 1pt \vfil\hrule width 2.8in\hfil\vskip -3pt
+            \leftline{Committee Member\hfil} 
+            \vskip 10pt
+
+            \leftline{\committeeTwo \hfil}
+            \vskip 1pt\vfil\hrule width 2.8in\hfil\vskip -3pt
+            \leftline{Committee Member\hfil}
+
+            \vspace{3em}
+            \leftline{Defense Date: \@defensedate \hfil}
+        \end{minipage}
+    \end{center}
+
   \vfill
   {\noindent *We also certify that written approval has been obtained for any proprietary material contained herein. \par}%
   \phantomsection%
