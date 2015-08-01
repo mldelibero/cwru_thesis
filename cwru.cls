@@ -16,6 +16,7 @@
 \RequirePackage{graphicx}
 %\RequirePackage{hyperref}
 \RequirePackage{fixltx2e}
+\RequirePackage{titling}
 
 \newif\if@advisor
 \@advisorfalse
@@ -323,6 +324,12 @@
 }
 
 \def\@CWRUabstract{%
+\date{}
+\author{\MakeUppercase{\authorText}}
+\posttitle{\par\end{center}}
+\setlength{\droptitle}{-5em}
+\maketitle
+\vspace{-5em}
   \section*{Abstract}%
   \begin{CWRU@page}{Abstract}
     \@CWRUabstracttext
